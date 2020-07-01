@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2ca4b3</color>
+    <color name="colorPrimaryDark">#2ca4b3</color>
+    <color name="colorAccent">#4b91b0</color>
+    <color name="border">#fabf7e</color>
+
+    <color name="colorAccentRadio">#FF0000</color>
+    <color name="green" >#008000</color>
+
+    <color name="colorBackgroundGrey">@color/grey_600</color>
+
+    <color name="background">#384862</color>
+    <color name="text_color">#dd3a74</color>
+
+    <color name="bg_row_background">#fa315b</color>
+</resources>

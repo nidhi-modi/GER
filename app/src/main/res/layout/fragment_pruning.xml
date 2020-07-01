@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".pruningFragment.PruningFragment">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="@string/lbl_worker_name" />
+
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/spin_worker_name"
+                style="@style/Form.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutDisplay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txtLastQualityDispaly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    style="@style/Form.Label"
+
+                    android:text="@string/lbl_quality_display" />
+
+                <TextView
+                    android:id="@+id/txtQualityPercentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/txtLastQualityDispaly"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_weight="2"
+                    style="@style/Form.Label.txt"
+                    android:text="100"
+                    />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_row_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_2sdp">
+
+                <EditText
+                    android:id="@+id/edt_row_number"
+                    style="@style/Form.Label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:hint="@string/lbl_row_number"
+                    android:inputType="number"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="@color/grey_800" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/lbl_pruning_data1"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                style="@style/Form.Label"
+                android:id="@+id/textView"
+                android:textColor="@color/black"/>
+
+
+            <RadioGroup
+                android:id="@+id/rdg_pruning_data1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <me.omidh.liquidradiobutton.LiquidRadioButton
+                    android:id="@+id/radio_pruning_data1_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:lrb_strokeWidth="3dp"
+                    app:lrb_explodeCount="6"
+                    app:lrb_outterPadding="8dp"
+                    app:lrb_innerCircleRadius="15dp"
+                    app:lrb_strokeRadius="23dp"
+                    app:lrb_inAnimDuration="300"
+                    app:lrb_outAnimDuration="300"
+                    app:lrb_checkedColor="#ff4caf50"
+                    app:lrb_unCheckedColor="#ff4caf50"
+                    android:text="@string/lbl_yes"
+                    android:textSize="@dimen/_13sdp"
+                    />
+
+                <me.omidh.liquidradiobutton.LiquidRadioButton
+                    android:id="@+id/radio_pruning_data1_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:lrb_strokeWidth="3dp"
+                    app:lrb_explodeCount="6"
+                    app:lrb_outterPadding="8dp"
+                    app:lrb_innerCircleRadius="15dp"
+                    app:lrb_strokeRadius="23dp"
+                    app:lrb_inAnimDuration="300"
+                    app:lrb_outAnimDuration="300"
+                    app:lrb_checkedColor="#fff44336"
+                    app:lrb_unCheckedColor="#fff44336"
+                    android:text="@string/lbl_no"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginLeft="@dimen/_15sdp" />
+
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/lbl_pruning_data2"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                style="@style/Form.Label"
+                android:id="@+id/textView2"
+                android:textColor="@color/black"/>
+
+
+            <RadioGroup
+                android:id="@+id/rdg_pruning_data2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView2"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <me.omidh.liquidradiobutton.LiquidRadioButton
+                    android:id="@+id/radio_pruning_data2_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:lrb_strokeWidth="3dp"
+                    app:lrb_explodeCount="6"
+                    app:lrb_outterPadding="8dp"
+                    app:lrb_innerCircleRadius="15dp"
+                    app:lrb_strokeRadius="23dp"
+                    app:lrb_inAnimDuration="300"
+                    app:lrb_outAnimDuration="300"
+                    app:lrb_checkedColor="#ff4caf50"
+                    app:lrb_unCheckedColor="#ff4caf50"
+                    android:text="@string/lbl_yes"
+                    android:textSize="@dimen/_13sdp"
+                    />
+
+                <me.omidh.liquidradiobutton.LiquidRadioButton
+                    android:id="@+id/radio_pruning_data2_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:lrb_strokeWidth="3dp"
+                    app:lrb_explodeCount="6"
+                    app:lrb_outterPadding="8dp"
+                    app:lrb_innerCircleRadius="15dp"
+                    app:lrb_strokeRadius="23dp"
+                    app:lrb_inAnimDuration="300"
+                    app:lrb_outAnimDuration="300"
+                    app:lrb_checkedColor="#fff44336"
+                    app:lrb_unCheckedColor="#fff44336"
+                    android:text="@string/lbl_no"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginLeft="@dimen/_15sdp" />
+
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/lbl_pruning_data3"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                style="@style/Form.Label"
+                android:id="@+id/textView3"
+                android:textColor="@color/black"/>
+
+
+            <RadioGroup
+                android:id="@+id/rdg_pruning_data3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView3"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <me.omidh.liquidradiobutton.LiquidRadioButton
+                    android:id="@+id/radio_pruning_data3_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:lrb_strokeWidth="3dp"
+                    app:lrb_explodeCount="6"
+                    app:lrb_outterPadding="8dp"
+                    app:lrb_innerCircleRadius="15dp"
+                    app:lrb_strokeRadius="23dp"
+                    app:lrb_inAnimDuration="300"
+                    app:lrb_outAnimDuration="300"
+                    app:lrb_checkedColor="#ff4caf50"
+                    app:lrb_unCheckedColor="#ff4caf50"
+                    android:text="@string/lbl_yes"
+                    android:textSize="@dimen/_13sdp"
+                    />
+
+                <me.omidh.liquidradiobutton.LiquidRadioButton
+                    android:id="@+id/radio_pruning_data3_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:lrb_strokeWidth="3dp"
+                    app:lrb_explodeCount="6"
+                    app:lrb_outterPadding="8dp"
+                    app:lrb_innerCircleRadius="15dp"
+                    app:lrb_strokeRadius="23dp"
+                    app:lrb_inAnimDuration="300"
+                    app:lrb_outAnimDuration="300"
+                    app:lrb_checkedColor="#fff44336"
+                    app:lrb_unCheckedColor="#fff44336"
+                    android:text="@string/lbl_no"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginLeft="@dimen/_15sdp" />
+
+
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/lbl_pruning_data4"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                style="@style/Form.Label"
+                android:id="@+id/textView4"
+                android:textColor="@color/black"/>
+
+
+            <RadioGroup
+                android:id="@+id/rdg_pruning_data4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView4"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <me.omidh.liquidradiobutton.LiquidRadioButton
+                    android:id="@+id/radio_pruning_data4_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:lrb_strokeWidth="3dp"
+                    app:lrb_explodeCount="6"
+                    app:lrb_outterPadding="8dp"
+                    app:lrb_innerCircleRadius="15dp"
+                    app:lrb_strokeRadius="23dp"
+                    app:lrb_inAnimDuration="300"
+                    app:lrb_outAnimDuration="300"
+                    app:lrb_checkedColor="#ff4caf50"
+                    app:lrb_unCheckedColor="#ff4caf50"
+                    android:text="@string/lbl_yes"
+                    android:textSize="@dimen/_13sdp"
+                    />
+
+                <me.omidh.liquidradiobutton.LiquidRadioButton
+                    android:id="@+id/radio_pruning_data4_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:lrb_strokeWidth="3dp"
+                    app:lrb_explodeCount="6"
+                    app:lrb_outterPadding="8dp"
+                    app:lrb_innerCircleRadius="15dp"
+                    app:lrb_strokeRadius="23dp"
+                    app:lrb_inAnimDuration="300"
+                    app:lrb_outAnimDuration="300"
+                    app:lrb_checkedColor="#fff44336"
+                    app:lrb_unCheckedColor="#fff44336"
+                    android:text="@string/lbl_no"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginLeft="@dimen/_15sdp" />
+
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/lbl_pruning_data5"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                style="@style/Form.Label"
+                android:id="@+id/textView5"
+                android:textColor="@color/black"/>
+
+
+            <EditText
+                android:id="@+id/edt_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:hint="@string/lbl_comments_hint"
+                android:maxLines="8"
+                android:lines="5"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border"
+                android:gravity="top|left"
+                android:scrollbars="vertical"
+                android:inputType="textMultiLine"
+                />
+
+            <Spinner
+                android:id="@+id/spin_adi_number"
+                style="@style/Form.Label"
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp" />
+
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:background="@drawable/custom_button"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:text="@string/lbl_submit"
+                android:layout_marginBottom="@dimen/_20sdp"/>
+
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

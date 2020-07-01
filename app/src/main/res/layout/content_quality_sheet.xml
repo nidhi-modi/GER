@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".qualitySheetActivity.QualitySheetActivity"
+    android:orientation="vertical"
+    android:background="@drawable/screen_background"
+    tools:showIn="@layout/activity_quality_sheet">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_10sdp"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_enter_data"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/lbl_auditor_name" />
+
+    <Spinner
+        android:id="@+id/spin_auditor_name"
+        style="@style/Form.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/lbl_house_number" />
+
+        <Spinner
+            android:id="@+id/spin_house_number"
+            style="@style/Form.Label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp" />
+
+        <!-- <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="@dimen/_10sdp"
+             android:layout_marginTop="@dimen/_15sdp"
+             android:text="@string/lbl_week_number" />
+
+         <Spinner
+             android:id="@+id/spin_week_number"
+             style="@style/Form.Label"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/_2sdp"
+             android:layout_marginBottom="@dimen/_5sdp"
+             android:layout_marginLeft="@dimen/_5sdp"
+             android:layout_marginRight="@dimen/_5sdp" />-->
+
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="@dimen/_10sdp"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:text="@string/lbl_job_name" />
+
+             <Spinner
+                 android:id="@+id/spin_job_name"
+                 style="@style/Form.Label"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="@dimen/_2sdp"
+                 android:layout_marginBottom="@dimen/_5sdp"
+                 android:layout_marginLeft="@dimen/_5sdp"
+                 android:layout_marginRight="@dimen/_5sdp" />
+
+         <FrameLayout
+             android:id="@+id/frame_layout_main"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" />
+
+         </LinearLayout>
+
+         </androidx.core.widget.NestedScrollView>
+
+     </LinearLayout>

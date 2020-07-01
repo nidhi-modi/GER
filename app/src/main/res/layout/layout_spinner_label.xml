@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:padding="@dimen/_5sdp"
+    android:layout_margin="5dp"
+    android:textColor="@color/grey_800">
+
+</TextView>
+
+    <!--
+        android:layout_height="@dimen/dim_TextView_height"
+        android:layout_margin="5dp"
+        android:padding="5dp"-->

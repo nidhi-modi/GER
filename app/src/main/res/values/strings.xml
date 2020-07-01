@@ -1,0 +1,288 @@
+<resources>
+    <string name="app_name">Quality Sheet</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="lbl_job_name">Select Job</string>
+    <string name="lbl_enter_data">Enter Job Details</string>
+    <string name="lbl_auditor_name">Select Auditor Name</string>
+    <string name="lbl_row_number">Row Number</string>
+    <string name="lbl_week_number">Select Week Number</string>
+    <string name="lbl_house_number">Select House Number</string>
+    <string name="permission_rationale">Please grant all permissions to proceed</string>
+
+    <string name="noti_channel_id">tandg.qualitysheet</string>
+
+
+    //---------------------COMMON--------------------------------
+    <string name="lbl_worker_name">Name</string>
+    <string name="lbl_comments_hint">Enter comments if needed</string>
+    <string name="lbl_submit">Submit</string>
+    <string name="lbl_yes">Pass</string>
+    <string name="lbl_no">Fail</string>
+    <string name="lbl_quality_display">Last Quality Percentage : </string>
+
+    //-------------------CLIPPING-------------------------------
+    <string name="lbl_clipping_data1">1) Clip position: not above a truss/one clip between truss/half twist <font fgcolor='#FFFF3B30'>(0)</font></string>
+    <string name="lbl_clipping_data2">2) Broken heads and trusses <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_clipping_data3">3) Broken heads replaced and bobbin hung <font fgcolor='#FFFF3B30'>(0)</font></string>
+    <string name="lbl_clipping_data4">4) Laterals: take laterals from previous clip to the head, fail if larger than finger nail <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_clipping_data5">5) Comments \neg: 10 broken heads, no half twist, clipping height poor, needs training</string>
+
+
+    //-------------------DROPPING-------------------------------
+    <string name="lbl_dropping_data1">1) Spacing: heads levelled and vines going down are spaced <font fgcolor='#FFFF3B30'>(0)</font></string>
+    <string name="lbl_dropping_data2">2) Angle is correct - drop and shift the same - Cubes not ripped <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_dropping_data3">3) Stems on the hoops, turning around properly <font fgcolor='#FFFF3B30'>(0)</font></string>
+    <string name="lbl_dropping_data4">4) Minimize floor fruit and broken trusses <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_dropping_data5">5) Comments \neg: vines are braided and bunchy but heads are levelled well, turning at the fronts/ backs needs improvement</string>
+
+    //-------------------PRUNING-------------------------------
+    <string name="lbl_pruning_data1">1) Accuracy: prune to the correct number and remove flag leaf + King fruit <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_pruning_data2">2) Position of arch: proper <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_pruning_data3">3) Pruning and arching at the right stage. Arch: as long as it fits and doesn\'t touch last bud <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_pruning_data4">4) No broken trusses <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_pruning_data5">5) Comments \neg: poor contact between arch and truss, arch too close fo the stem, pruning too hard</string>
+
+    //-------------------TWISTING-------------------------------
+    <string name="lbl_twisting_data1">1) Trusses and leaves not trapped, and not wound too much <font fgcolor='#FFFF3B30'>(0)</font></string>
+    <string name="lbl_twisting_data2">2) Broken heads and trusses <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_twisting_data3">3) Broken heads replaced and bobbin hung <font fgcolor='#FFFF3B30'>(0)</font></string>
+    <string name="lbl_twisting_data4">4) Laterals: take laterals from previous twist to the head, fail if larger than finger nail <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_twisting_data5">5) Comments \neg: 10 broken heads, twisting the wrong way, needs training, trusses cught under string</string>
+
+    //-------------------DELEAFING-------------------------------
+    <string name="lbl_deleafing_data1">1) Clean cut - minimize stubs and bad cuts <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_deleafing_data2">2) Accuracy: correct range of leaves removed for whole line <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_deleafing_data3">3) Stem and middle laterals taken, stems on hoops <font fgcolor='#FFFF3B30'>(3 each)</font></string>
+    <string name="lbl_deleafing_data4">4) Laterals: no sliced fruit, minimizes broken trusses, dead plants reported <font fgcolor='#FFFF3B30'>(1 each)</font></string>
+    <string name="lbl_deleafing_data5">5) Comments \neg: sent back to fix stubs, sliced through a stem, string not cut</string>
+
+    //-------------------PICKING-------------------------------
+    <string name="lbl_picking_data1">1) No floor fruit <font fgcolor='#FFFF3B30'>(0)</font></string>
+    <string name="lbl_picking_data2">2) Colour stage and missing fruit <font fgcolor='#FFFF3B30'>(0)</font></string>
+    <string name="lbl_picking_data3">3) Fruit graded out: rotten, damaged, miss-set <font fgcolor='#FFFF3B30'>(0)</font></string>
+    <string name="lbl_picking_data4">4) No plant materials and calyx <font fgcolor='#FFFF3B30'>(0)</font></string>
+    <string name="lbl_picking_data5">5) Comments \neg: 10 broken heads, no half twist, clipping height poor, needs training</string>
+
+    //-------------------NAMES-------------------------------
+
+    <array name="ger_names">
+        <item>SELECT</item>
+        <item>Paul Haxby</item>
+        <item>Deep Singh </item>
+        <item>Nau Pesa </item>
+        <item>Melody Taylor</item>
+        <item>Tomasi Lama </item>
+        <item>Amy Bhana</item>
+        <item>Helen Brian </item>
+        <item>Sumita Chand </item>
+        <item>Melenau Feao</item>
+        <item>Paula Feao</item>
+        <item>Paea Filiai</item>
+        <item>Simione Filiai</item>
+        <item>Huia Flavell</item>
+        <item>Peter Hepi</item>
+        <item>Teiamaon Ieremia</item>
+        <item>Oliveti Lama</item>
+        <item>Eric Low</item>
+        <item>Craig Martin</item>
+        <item>Lise Maunana</item>
+        <item>Michael Miteti</item>
+        <item>Toutai Pakofe</item>
+        <item>Ngana Potesio </item>
+        <item>Waimatou Potini</item>
+        <item>Ram Harsangat</item>
+        <item>Roshni Singh</item>
+        <item>Paape Sotaga</item>
+        <item>Errol Straker</item>
+        <item>Kataua Tekitanga</item>
+        <item>Tafihi Toafa</item>
+        <item>Reanna Broome</item>
+        <item>Steve Bryan</item>
+        <item>Michelle Enqriquez</item>
+        <item>Hester Fourie </item>
+        <item>Keying He</item>
+        <item>Julie Kelly</item>
+        <item>Phillip Martin</item>
+        <item>Amend Singh</item>
+        <item>Laine Tavake</item>
+        <item>Jaya Vytla</item>
+        <item>Haieti Fakaosi</item>
+        <item>Semisi Wolfgram</item>
+        <item>Latu Vainga</item>
+        <item>Siosaia Unga</item>
+        <item>Timote Tonga</item>
+        <item>Taniela Hennessey</item>
+        <item>Tevita Mafua</item>
+        <item>Liufau Aukafolau</item>
+        <item>Ahi Sia I Moana Aukafolau</item>
+        <item>Kesomi Aukafolau</item>
+        <item>Sitiveni Vaivela</item>
+        <item>Lopeti Tulikihakau</item>
+        <item>Losimani Soakai </item>
+        <item>Alamoti Finau</item>
+        <item>Pauliasi Pakileata </item>
+        <item>Fakatele Taufa</item>
+        <item>Sione Tu\'itupou</item>
+        <item>Ulupano Lo</item>
+        <item>Naulivou Pangi</item>
+        <item>Folau Vaipapalangi</item>
+        <item>Ofila Tausisi</item>
+        <item>Folau Tausinga</item>
+        <item>Molisi Vaea</item>
+        <item>Asipeli Fetuu</item>
+        <item>Mosese Tuitupou</item>
+        <item>Atunaisa Aukafolau</item>
+        <item>Pesalili Vaea</item>
+        <item>Pita Huni</item>
+        <item>Patimana Finau</item>
+        <item>Manase Fainganuku</item>
+        <item>Phillip Martin</item>
+        <item>Hanllal Vailea</item>
+        <item>Sione Uliti Tualau</item>
+        <item>Viliami Teuteukuhelotu</item>
+        <item>Tevita Vaomotou</item>
+        <item>Lataimulinu\'u Tongatoutai</item>
+        <item>Vakavelo Ulinoa</item>
+        <item>Samiu Aholelei </item>
+        <item>Moala Paongo</item>
+        <item>Samiuela Latu</item>
+        <item>Pepa Aukafolau </item>
+        <item>Nulani Fifita</item>
+        <item>Rebecca Wilson </item>
+        <item>Aoniba Tabane </item>
+        <item>Banikai Kautabuki </item>
+        <item>Bungintai Taatonga </item>
+        <item>Marouea Takaree</item>
+        <item>Meere Beiariki</item>
+        <item>Kinateao Iran</item>
+        <item>Susi Tekaai</item>
+        <item>Tebaibure Tonginako </item>
+        <item>Tebanikaboki Moretekai</item>
+        <item>Tikoi Rerei</item>
+        <item>Temateao Tanako</item>
+        <item>Terenga Tebau</item>
+        <item>Teuota Kontrio </item>
+        <item>Tiotara Temare</item>
+        <item>Waabuti Ataia</item>
+        <item>Meere Eriki</item>
+        <item>Kibaria Kaukau</item>
+        <item>Moannara Tekaai </item>
+        <item>Taane Ioanne</item>
+
+
+    </array>
+
+    //-------------------ADI CODES-------------------------------
+
+    <array name="ger_adi">
+        <item>SELECT</item>
+        <item>95915</item>
+        <item>10933</item>
+        <item>579</item>
+        <item>11302</item>
+        <item>96957</item>
+        <item>11303</item>
+        <item>226</item>
+        <item>10469</item>
+        <item>12356</item>
+        <item>11377</item>
+        <item>97283</item>
+        <item>10852</item>
+        <item>97617</item>
+        <item>91840</item>
+        <item>92843</item>
+        <item>9207</item>
+        <item>96327</item>
+        <item>97618</item>
+        <item>96817</item>
+        <item>13823</item>
+        <item>96239</item>
+        <item>98897</item>
+        <item>94002</item>
+        <item>92855</item>
+        <item>12399</item>
+        <item>97501</item>
+        <item>92770</item>
+        <item>92787</item>
+        <item>9053</item>
+        <item>99829</item>
+        <item>99826</item>
+        <item>98862</item>
+        <item>99876</item>
+        <item>99827</item>
+        <item>99828</item>
+        <item>99790</item>
+        <item>99832</item>
+        <item>93823</item>
+        <item>7530</item>
+        <item>95552</item>
+        <item>94666</item>
+        <item>10116</item>
+        <item>11644</item>
+        <item>90579</item>
+        <item>11648</item>
+        <item>10108</item>
+        <item>97493</item>
+        <item>97253</item>
+        <item>91180</item>
+        <item>11582</item>
+        <item>97647</item>
+        <item>95554</item>
+        <item>99212</item>
+        <item>94902</item>
+        <item>95553</item>
+        <item>97876</item>
+        <item>99213</item>
+        <item>10752</item>
+        <item>97645</item>
+        <item>97492</item>
+        <item>96576</item>
+        <item>14020</item>
+        <item>11702</item>
+        <item>93872</item>
+        <item>90581</item>
+        <item>97491</item>
+        <item>11699</item>
+        <item>96429</item>
+        <item>97646</item>
+        <item>99790</item>
+        <item>10109</item>
+        <item>92820</item>
+        <item>11618</item>
+        <item>92812</item>
+        <item>10523</item>
+        <item>90936</item>
+        <item>96562</item>
+        <item>92801</item>
+        <item>95843</item>
+        <item>90583</item>
+        <item>10142</item>
+        <item>242</item>
+        <item>90187</item>
+        <item>90970</item>
+        <item>17686</item>
+        <item>10556</item>
+        <item>17600</item>
+        <item>98922</item>
+        <item>93891</item>
+        <item>17627</item>
+        <item>90185</item>
+        <item>93889</item>
+        <item>10557</item>
+        <item>10559</item>
+        <item>95738</item>
+        <item>95741</item>
+        <item>84739</item>
+        <item>97471</item>
+        <item>97472</item>
+        <item>93890</item>
+        <item>98923</item>
+
+
+    </array>
+
+
+
+
+</resources>
