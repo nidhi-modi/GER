@@ -20,13 +20,15 @@
     <string name="lbl_yes">Pass</string>
     <string name="lbl_no">Fail</string>
     <string name="lbl_quality_display">Last Quality Percentage : </string>
+    <string name="lbl_comments_dropdown">Select comment from the list</string>
+
 
     //-------------------CLIPPING-------------------------------
     <string name="lbl_clipping_data1">1) Clip position: not above a truss/one clip between truss/half twist <font fgcolor='#FFFF3B30'>(0)</font></string>
     <string name="lbl_clipping_data2">2) Broken heads and trusses <font fgcolor='#FFFF3B30'>(3 each)</font></string>
     <string name="lbl_clipping_data3">3) Broken heads replaced and bobbin hung <font fgcolor='#FFFF3B30'>(0)</font></string>
     <string name="lbl_clipping_data4">4) Laterals: take laterals from previous clip to the head, fail if larger than finger nail <font fgcolor='#FFFF3B30'>(3 each)</font></string>
-    <string name="lbl_clipping_data5">5) Comments \neg: 10 broken heads, no half twist, clipping height poor, needs training</string>
+    <string name="lbl_clipping_data5">5) Comments \neg: 10 broken heads, no half twist, clipping height poor, needs training (Select comment if needed)</string>
 
 
     //-------------------DROPPING-------------------------------
@@ -34,35 +36,35 @@
     <string name="lbl_dropping_data2">2) Angle is correct - drop and shift the same - Cubes not ripped <font fgcolor='#FFFF3B30'>(3 each)</font></string>
     <string name="lbl_dropping_data3">3) Stems on the hoops, turning around properly <font fgcolor='#FFFF3B30'>(0)</font></string>
     <string name="lbl_dropping_data4">4) Minimize floor fruit and broken trusses <font fgcolor='#FFFF3B30'>(3 each)</font></string>
-    <string name="lbl_dropping_data5">5) Comments \neg: vines are braided and bunchy but heads are levelled well, turning at the fronts/ backs needs improvement</string>
+    <string name="lbl_dropping_data5">5) Comments \neg: vines are braided and bunchy but heads are levelled well, turning at the fronts/ backs needs improvement (Select comment if needed)</string>
 
     //-------------------PRUNING-------------------------------
     <string name="lbl_pruning_data1">1) Accuracy: prune to the correct number and remove flag leaf + King fruit <font fgcolor='#FFFF3B30'>(3 each)</font></string>
     <string name="lbl_pruning_data2">2) Position of arch: proper <font fgcolor='#FFFF3B30'>(3 each)</font></string>
     <string name="lbl_pruning_data3">3) Pruning and arching at the right stage. Arch: as long as it fits and doesn\'t touch last bud <font fgcolor='#FFFF3B30'>(3 each)</font></string>
     <string name="lbl_pruning_data4">4) No broken trusses <font fgcolor='#FFFF3B30'>(3 each)</font></string>
-    <string name="lbl_pruning_data5">5) Comments \neg: poor contact between arch and truss, arch too close fo the stem, pruning too hard</string>
+    <string name="lbl_pruning_data5">5) Comments \neg: poor contact between arch and truss, arch too close fo the stem, pruning too hard (Select comment if needed)</string>
 
     //-------------------TWISTING-------------------------------
     <string name="lbl_twisting_data1">1) Trusses and leaves not trapped, and not wound too much <font fgcolor='#FFFF3B30'>(0)</font></string>
     <string name="lbl_twisting_data2">2) Broken heads and trusses <font fgcolor='#FFFF3B30'>(3 each)</font></string>
     <string name="lbl_twisting_data3">3) Broken heads replaced and bobbin hung <font fgcolor='#FFFF3B30'>(0)</font></string>
     <string name="lbl_twisting_data4">4) Laterals: take laterals from previous twist to the head, fail if larger than finger nail <font fgcolor='#FFFF3B30'>(3 each)</font></string>
-    <string name="lbl_twisting_data5">5) Comments \neg: 10 broken heads, twisting the wrong way, needs training, trusses cught under string</string>
+    <string name="lbl_twisting_data5">5) Comments \neg: 10 broken heads, twisting the wrong way, needs training, trusses cught under string (Select comment if needed)</string>
 
     //-------------------DELEAFING-------------------------------
     <string name="lbl_deleafing_data1">1) Clean cut - minimize stubs and bad cuts <font fgcolor='#FFFF3B30'>(3 each)</font></string>
     <string name="lbl_deleafing_data2">2) Accuracy: correct range of leaves removed for whole line <font fgcolor='#FFFF3B30'>(3 each)</font></string>
     <string name="lbl_deleafing_data3">3) Stem and middle laterals taken, stems on hoops <font fgcolor='#FFFF3B30'>(3 each)</font></string>
     <string name="lbl_deleafing_data4">4) Laterals: no sliced fruit, minimizes broken trusses, dead plants reported <font fgcolor='#FFFF3B30'>(1 each)</font></string>
-    <string name="lbl_deleafing_data5">5) Comments \neg: sent back to fix stubs, sliced through a stem, string not cut</string>
+    <string name="lbl_deleafing_data5">5) Comments \neg: sent back to fix stubs, sliced through a stem, string not cut (Select comment if needed)</string>
 
     //-------------------PICKING-------------------------------
     <string name="lbl_picking_data1">1) No floor fruit <font fgcolor='#FFFF3B30'>(0)</font></string>
     <string name="lbl_picking_data2">2) Colour stage and missing fruit <font fgcolor='#FFFF3B30'>(0)</font></string>
     <string name="lbl_picking_data3">3) Fruit graded out: rotten, damaged, miss-set <font fgcolor='#FFFF3B30'>(0)</font></string>
     <string name="lbl_picking_data4">4) No plant materials and calyx <font fgcolor='#FFFF3B30'>(0)</font></string>
-    <string name="lbl_picking_data5">5) Comments \neg: 10 broken heads, no half twist, clipping height poor, needs training</string>
+    <string name="lbl_picking_data5">5) Comments \neg: 10 broken heads, no half twist, clipping height poor, needs training (Select comment if needed)</string>
 
     //-------------------NAMES-------------------------------
 

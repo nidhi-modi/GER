@@ -74,12 +74,12 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
 
     //@formatter:off
 
-    @BindView(R.id.edt_row_number)                    EditText edtRowNumber;
-    @BindView(R.id.edt_comments)                      EditText edtComments;
+    @BindView(R.id.edt_row_number)                      EditText edtRowNumber;
+    //@BindView(R.id.edt_comments)                        EditText edtComments;
 
-    @BindView(R.id.spin_worker_name)                  SearchableSpinner spinWorkerName;
-    @BindView(R.id.spin_adi_number)                   Spinner spinAdiNumber;
-
+    @BindView(R.id.spin_worker_name)                    SearchableSpinner spinWorkerName;
+    @BindView(R.id.spin_adi_number)                     Spinner spinAdiNumber;
+    @BindView(R.id.spin_comments)                       Spinner spinComments;
 
     @BindView(R.id.input_row_number)                  TextInputLayout inputRowNumber;
 
@@ -107,7 +107,7 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
     String argJobName, argAuditorName, argHouseNumber, argWeekNumber, percentTest;
     private QualityInfo                               globalQualityInfo, qualityInfo;
     private ProgressDialog                            progressDialog;
-    private String                                    spinnerWorkerName, spinnerAdiNumber, workerName1, adiNumber1;
+    private String                                    spinnerWorkerName, spinnerAdiNumber, workerName1, adiNumber1, spinnerComments, comments;
     private int                                       workerPosition, combinedPos;
     private int count = 0;
     private int percentCount = 25;
@@ -159,8 +159,8 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
         ssPercentage      = new ArrayList<>();
 
         edtRowNumber.setInputType(InputType.TYPE_CLASS_NUMBER);
-        edtComments.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        edtComments.setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        //edtComments.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        //edtComments.setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
 
         rdgDroppingData1.setOnCheckedChangeListener(this);
         rdgDroppingData2.setOnCheckedChangeListener(this);
@@ -169,6 +169,7 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
 
         spinWorkerName.setOnItemSelectedListener(this);
         spinAdiNumber.setOnItemSelectedListener(this);
+        spinComments.setOnItemSelectedListener(this);
 
 
         btnSubmit.setOnClickListener(this);
@@ -310,6 +311,20 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(mActivity, R.layout.layout_spinner_label, arrayList);
         arrayAdapter.setDropDownViewResource(R.layout.layout_spinner_label);
         spinAdiNumber.setAdapter(arrayAdapter);*/
+
+        ArrayList<SpinInfo> stringArrayList = new ArrayList<>();
+        stringArrayList.add(new SpinInfo(0, "SELECT"));
+        stringArrayList.add(new SpinInfo(1, "Sent staff back to fix the issue"));
+        stringArrayList.add(new SpinInfo(2, "Will check more of his/her rows"));
+        stringArrayList.add(new SpinInfo(3, "Recurring issue, needs to be escalated"));
+        stringArrayList.add(new SpinInfo(4, "Informal talk conducted"));
+
+
+        ArrayAdapter<SpinInfo> adapter = new ArrayAdapter<SpinInfo>(mActivity, R.layout.layout_spinner_label, stringArrayList);
+        adapter.setDropDownViewResource(R.layout.layout_spinner_label);
+        spinComments.setAdapter(adapter);
+
+        ApplicationUtils.hideKeypad(mActivity, spinComments);
 
         ApplicationUtils.hideKeypad(mActivity, spinAdiNumber);
         ApplicationUtils.hideKeypad(mActivity, spinWorkerName);
@@ -536,9 +551,10 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
 
     private void validateDroppingComments(QualityInfo qualityInfo) {
 
-        String comments = edtComments.getText().toString().trim();
+        qualityInfo.setComments(spinnerComments);
 
-        qualityInfo.setComments(comments);
+        //String comments = edtComments.getText().toString().trim();
+
         calculatePercentage(qualityInfo);
 
     }
@@ -703,13 +719,14 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
     private void clearText() {
 
         edtRowNumber.setText("");
-        edtComments.setText("");
+        //edtComments.setText("");
         rdgDroppingData1.clearCheck();
         rdgDroppingData2.clearCheck();
         rdgDroppingData3.clearCheck();
         rdgDroppingData4.clearCheck();
         spinWorkerName.setSelection(0);
         spinAdiNumber.setSelection(0);
+        spinComments.setSelection(0);
         llDispaly.setVisibility(View.GONE);
 
 
@@ -923,10 +940,21 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
 
                 }
 
-
-
-
                 break;
+
+            case R.id.spin_comments:
+
+                ApplicationUtils.hideKeypad(mActivity, spinComments);
+
+                comments = adapterView.getItemAtPosition(position).toString();
+
+                if (comments != null && comments.trim().length() > 0 && !comments.equalsIgnoreCase("SELECT")) {
+
+                    spinnerComments = comments;
+
+                }
+                break;
+
 
         }
 

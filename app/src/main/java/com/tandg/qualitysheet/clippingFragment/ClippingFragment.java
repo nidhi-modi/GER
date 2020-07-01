@@ -84,10 +84,11 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
 
     //@BindView(R.id.edt_worker_name)                   EditText edtWorkerName;
     @BindView(R.id.edt_row_number)                      EditText edtRowNumber;
-    @BindView(R.id.edt_comments)                        EditText edtComments;
+    //@BindView(R.id.edt_comments)                        EditText edtComments;
 
     @BindView(R.id.spin_worker_name)                    SearchableSpinner spinWorkerName;
     @BindView(R.id.spin_adi_number)                     Spinner spinAdiNumber;
+    @BindView(R.id.spin_comments)                       Spinner spinComments;
 
 
     @BindView(R.id.input_row_number)                    TextInputLayout inputRowNumber;
@@ -114,8 +115,8 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
 
 
     String                                              radioData1, radioData2, radioData3, radioData4;
-    String                                              argJobName, argAuditorName, argHouseNumber, argWeekNumber, percentTest;
-    private String                                      spinnerWorkerName, spinnerAdiNumber, workerName1, adiNumber1;
+    String                                              argJobName, argAuditorName, argHouseNumber, argWeekNumber, percentTest, comments;
+    private String                                      spinnerWorkerName, spinnerAdiNumber, workerName1, adiNumber1, spinnerComments;
     private int                                         workerPosition, combinedPos;
     private QualityInfo                                 globalQualityInfo, qualityInfo;
     private ProgressDialog                              progressDialog;
@@ -169,8 +170,8 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
 
 
         edtRowNumber.setInputType(InputType.TYPE_CLASS_NUMBER);
-        edtComments.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        edtComments.setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        //edtComments.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        //edtComments.setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
 
 
         rdgClippingData1.setOnCheckedChangeListener(this);
@@ -180,6 +181,7 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
 
         spinWorkerName.setOnItemSelectedListener(this);
         spinAdiNumber.setOnItemSelectedListener(this);
+        spinComments.setOnItemSelectedListener(this);
 
         btnSubmit.setOnClickListener(this);
 
@@ -324,6 +326,21 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
         arrayAdapter.setDropDownViewResource(R.layout.layout_spinner_label);
         spinAdiNumber.setAdapter(arrayAdapter);*/
 
+        //------------------------------JOB_NAME----------------------------------------
+
+        ArrayList<SpinInfo> stringArrayList = new ArrayList<>();
+        stringArrayList.add(new SpinInfo(0, "SELECT"));
+        stringArrayList.add(new SpinInfo(1, "Sent staff back to fix the issue"));
+        stringArrayList.add(new SpinInfo(2, "Will check more of his/her rows"));
+        stringArrayList.add(new SpinInfo(3, "Recurring issue, needs to be escalated"));
+        stringArrayList.add(new SpinInfo(4, "Informal talk conducted"));
+
+
+        ArrayAdapter<SpinInfo> adapter = new ArrayAdapter<SpinInfo>(mActivity, R.layout.layout_spinner_label, stringArrayList);
+        adapter.setDropDownViewResource(R.layout.layout_spinner_label);
+        spinComments.setAdapter(adapter);
+
+        ApplicationUtils.hideKeypad(mActivity, spinComments);
         ApplicationUtils.hideKeypad(mActivity, spinAdiNumber);
         ApplicationUtils.hideKeypad(mActivity, spinWorkerName);
 
@@ -548,9 +565,10 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
 
     private void validateClippingComments(QualityInfo qualityInfo) {
 
-        String comments = edtComments.getText().toString().trim();
+        qualityInfo.setComments(spinnerComments);
 
-        qualityInfo.setComments(comments);
+        //String comments = edtComments.getText().toString().trim();
+
         calculatePercentage(qualityInfo);
 
 
@@ -718,7 +736,8 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
         spinWorkerName.setSelection(0);
         spinAdiNumber.setSelection(0);
         edtRowNumber.setText("");
-        edtComments.setText("");
+        //edtComments.setText("");
+        spinComments.setSelection(0);
         rdgClippingData1.clearCheck();
         rdgClippingData2.clearCheck();
         rdgClippingData3.clearCheck();
@@ -957,6 +976,19 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
 
 
 
+                break;
+
+            case R.id.spin_comments:
+
+                ApplicationUtils.hideKeypad(mActivity, spinComments);
+
+                comments = adapterView.getItemAtPosition(position).toString();
+
+                if (comments != null && comments.trim().length() > 0 && !comments.equalsIgnoreCase("SELECT")) {
+
+                    spinnerComments = comments;
+
+                }
                 break;
 
 
