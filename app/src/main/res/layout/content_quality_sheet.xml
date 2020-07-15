@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".qualitySheetActivity.QualitySheetActivity"
     android:orientation="vertical"
-    android:background="@drawable/screen_background"
+    android:background="@drawable/image2"
     tools:showIn="@layout/activity_quality_sheet">
 
     <androidx.core.widget.NestedScrollView
@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="@color/black"
         android:text="@string/lbl_auditor_name" />
 
     <Spinner
@@ -54,6 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/black"
             android:text="@string/lbl_house_number" />
 
         <Spinner
@@ -83,11 +85,13 @@
              android:layout_marginLeft="@dimen/_5sdp"
              android:layout_marginRight="@dimen/_5sdp" />-->
 
+
              <TextView
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:layout_marginLeft="@dimen/_10sdp"
                  android:layout_marginTop="@dimen/_10sdp"
+                 android:textColor="@color/black"
                  android:text="@string/lbl_job_name" />
 
              <Spinner
@@ -99,6 +103,8 @@
                  android:layout_marginBottom="@dimen/_5sdp"
                  android:layout_marginLeft="@dimen/_5sdp"
                  android:layout_marginRight="@dimen/_5sdp" />
+
+
 
          <FrameLayout
              android:id="@+id/frame_layout_main"

@@ -23,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_15sdp"
+                android:textColor="@color/black"
                 android:text="@string/lbl_worker_name" />
 
 
