@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".qualitySheetActivity.QualitySheetActivity"
     android:orientation="vertical"
-    android:background="@drawable/image2"
+    android:background="@drawable/image4"
     tools:showIn="@layout/activity_quality_sheet">
 
     <androidx.core.widget.NestedScrollView
@@ -30,23 +30,33 @@
         android:textStyle="bold"
         android:layout_marginTop="@dimen/_5sdp"/>
 
+        <Spinner
+            android:id="@+id/spin_adi_number"
+            style="@style/Form.Label"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp" />
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
         android:textColor="@color/black"
-        android:text="@string/lbl_auditor_name" />
+        android:text="@string/lbl_auditor_name"
+       />
 
     <Spinner
         android:id="@+id/spin_auditor_name"
         style="@style/Form.Label"
+        android:background="@drawable/spinner_border"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_2sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
         android:layout_marginRight="@dimen/_5sdp" />
 
 
@@ -54,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:textColor="@color/black"
             android:text="@string/lbl_house_number" />
 
@@ -62,11 +72,13 @@
             android:id="@+id/spin_house_number"
             style="@style/Form.Label"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_2sdp"
             android:layout_marginBottom="@dimen/_5sdp"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_marginRight="@dimen/_5sdp" />
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:background="@drawable/spinner_border"
+            />
 
         <!-- <TextView
              android:layout_width="match_parent"
@@ -85,12 +97,36 @@
              android:layout_marginLeft="@dimen/_5sdp"
              android:layout_marginRight="@dimen/_5sdp" />-->
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textColor="@color/black"
+            android:text="@string/lbl_worker_name" />
+
+
+
+
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+            android:id="@+id/spin_worker_name"
+            style="@style/Theme.UserDialog"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@drawable/spinner_border"/>
+
+
+
 
              <TextView
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:layout_marginLeft="@dimen/_10sdp"
-                 android:layout_marginTop="@dimen/_10sdp"
+                 android:layout_marginTop="@dimen/_15sdp"
                  android:textColor="@color/black"
                  android:text="@string/lbl_job_name" />
 
@@ -98,11 +134,13 @@
                  android:id="@+id/spin_job_name"
                  style="@style/Form.Label"
                  android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
+                 android:layout_height="@dimen/_30sdp"
                  android:layout_marginTop="@dimen/_2sdp"
                  android:layout_marginBottom="@dimen/_5sdp"
-                 android:layout_marginLeft="@dimen/_5sdp"
-                 android:layout_marginRight="@dimen/_5sdp" />
+                 android:layout_marginLeft="@dimen/_8sdp"
+                 android:layout_marginRight="@dimen/_5sdp"
+                 android:background="@drawable/spinner_border"
+                 />
 
 
 

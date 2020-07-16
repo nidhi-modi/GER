@@ -77,8 +77,6 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
     @BindView(R.id.edt_row_number)                     EditText edtRowNumber;
     //@BindView(R.id.edt_comments)                        EditText edtComments;
 
-    @BindView(R.id.spin_worker_name)                    SearchableSpinner spinWorkerName;
-    @BindView(R.id.spin_adi_number)                     Spinner spinAdiNumber;
     @BindView(R.id.spin_comments)                       Spinner spinComments;
 
 
@@ -109,7 +107,7 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
 
 
     String radioData1, radioData2, radioData3, radioData4;
-    String argJobName, argAuditorName, argHouseNumber, argWeekNumber, percentTest, comments;
+    String argJobName, argAuditorName, argHouseNumber, argWeekNumber, argWorkerName, argAdiCode, percentTest, comments;
     private QualityInfo                               globalQualityInfo, qualityInfo;
     private ProgressDialog                            progressDialog;
     private String                                     spinnerWorkerName, spinnerAdiNumber, workerName1, adiNumber1, spinnerComments;
@@ -151,8 +149,10 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
         argAuditorName   = getArguments().getString("txtAuditorName");
         argHouseNumber   = getArguments().getString("txtHouseNo");
         argWeekNumber    = getArguments().getString("txtWeekNo");
+        argWorkerName    = getArguments().getString("txtWorkerName");
+        argAdiCode       = getArguments().getString("txtADICode");
 
-        Log.e(TAG, "Data From Activity to Deleafing fragment: " +argJobName+" "+argAuditorName+" "+argHouseNumber+" "+argWeekNumber );
+        Log.e(TAG, "Data From Activity to Deleafing fragment: " +argJobName+" "+argAuditorName+" "+argHouseNumber+" "+argWeekNumber+" "+argWorkerName+" "+argAdiCode );
 
         globalQualityInfo = new QualityInfo();
         qualityInfo       = new QualityInfo();
@@ -171,8 +171,6 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
         rdgDeleafingData3.setOnCheckedChangeListener(this);
         rdgDeleafingData4.setOnCheckedChangeListener(this);
 
-        spinWorkerName.setOnItemSelectedListener(this);
-        spinAdiNumber.setOnItemSelectedListener(this);
         spinComments.setOnItemSelectedListener(this);
 
 
@@ -183,25 +181,90 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
 
             getQualityPercentageFromSheet();
 
-            getItems();
-
-        }else {
-
-            List<String> arrayList = Arrays.asList(getResources().getStringArray(R.array.ger_names));
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(mActivity, R.layout.layout_spinner_label, arrayList);
-            arrayAdapter.setDropDownViewResource(R.layout.layout_spinner_label);
-            spinWorkerName.setAdapter(arrayAdapter);
-
-            List<String> arrayList1 = Arrays.asList(getResources().getStringArray(R.array.ger_adi));
-            ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(mActivity, R.layout.layout_spinner_label, arrayList1);
-            arrayAdapter1.setDropDownViewResource(R.layout.layout_spinner_label);
-            spinAdiNumber.setAdapter(arrayAdapter);
-
         }
         initSpinners();
 
 
     }
+    private void displayPercentageData() {
+
+        if(ApplicationUtils.isConnected(mActivity)){
+
+            if(!ssCombinedData.isEmpty() && !ssPercentage.isEmpty()){
+
+                String combined = argJobName+" "+argWorkerName;
+
+                Log.e(TAG, "onItemSelected: "+combined );
+
+                if(ssCombinedData.contains(combined)) {
+
+                    llDispaly.setVisibility(View.VISIBLE);
+
+                    combinedPos = getCategoryPosCombinedData(combined);
+
+
+                    if(ssPercentage.get(combinedPos) != null){
+
+                        //if(pos1 == pos2){
+
+                        percentTest = ssPercentage.get(combinedPos);
+                        txtQualityPercent.setText(percentTest + "%");
+
+                    }else {
+
+                        llDispaly.setVisibility(View.GONE);
+                        txtQualityPercent.setText("");
+
+                    }
+
+
+
+
+
+                }else{
+
+                    llDispaly.setVisibility(View.GONE);
+                    txtQualityPercent.setText("");
+
+                }
+
+
+            }else {
+
+                llDispaly.setVisibility(View.GONE);
+                txtQualityPercent.setText("");
+
+
+            }
+
+
+
+        }else {
+
+            qualityInfoDataSource.open();
+
+            globalQualityInfo = qualityInfoDataSource.getQualityInfoByJobAndWorkerName(workerName1, argJobName);
+
+            qualityInfoDataSource.close();
+
+            if (globalQualityInfo != null && globalQualityInfo.getQualityPercent() != null) {
+
+                llDispaly.setVisibility(View.VISIBLE);
+
+                txtQualityPercent.setText(globalQualityInfo.getQualityPercent() + "%");
+
+
+            } else {
+
+                llDispaly.setVisibility(View.GONE);
+                txtQualityPercent.setText("");
+
+
+            }
+
+        }
+    }
+
 
     private int getCategoryPosCombinedData(String category) {
         return ssCombinedData.lastIndexOf(category);
@@ -226,6 +289,7 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
                                 ssPercentage.add(Quality);
                             }
 
+                            displayPercentageData();
 
 
                         }catch (JSONException e){e.printStackTrace();}
@@ -251,60 +315,6 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
         queue.add(stringRequest);
     }
 
-    private void getItems() {
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://script.google.com/macros/s/AKfycbwg5HBhqUaD8_anJooaGgWtWbzSrGA2iYnMdSqzYnOe8aSZsG9Y/exec?action=getGerNames",
-                new com.android.volley.Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        try{
-                            JSONObject jsonObject=new JSONObject(response);
-                            JSONArray jsonArray=jsonObject.getJSONArray("items");
-                            for(int i=0;i<jsonArray.length();i++){
-                                JSONObject jsonObject1=jsonArray.getJSONObject(i);
-                                String name1=jsonObject1.getString("workersName");
-                                String adi1=jsonObject1.getString("adiCode");
-
-                                WorkersName.add(name1);
-                                ADICode.add(adi1);
-                            }
-
-                                setSpinner();
-
-
-
-                        }catch (JSONException e){e.printStackTrace();}
-
-
-                        //parseItems(response);
-                    }
-                },
-
-                new com.android.volley.Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                }
-        );
-
-        int socketTimeOut = 50000;
-        RetryPolicy policy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-
-        stringRequest.setRetryPolicy(policy);
-
-        RequestQueue queue = Volley.newRequestQueue(mActivity);
-        queue.add(stringRequest);
-
-    }
-
-
-    private void setSpinner() {
-
-        spinWorkerName.setAdapter(new ArrayAdapter<String>(mActivity, android.R.layout.simple_spinner_dropdown_item, WorkersName));
-        spinAdiNumber.setAdapter(new ArrayAdapter<String>(mActivity, android.R.layout.simple_spinner_dropdown_item, ADICode));
-    }
 
 
     private void initSpinners() {
@@ -328,8 +338,7 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
 
         ApplicationUtils.hideKeypad(mActivity, spinComments);
 
-        ApplicationUtils.hideKeypad(mActivity, spinAdiNumber);
-        ApplicationUtils.hideKeypad(mActivity, spinWorkerName);
+
 
 
     }
@@ -345,7 +354,7 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
         }
         else if(isVisited)
         {
-            setSpinner();
+            //setSpinner();
         }
     }
 
@@ -434,25 +443,25 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
 
     private void validateWorkerName(QualityInfo qualityInfo) {
 
-        if(spinnerWorkerName != null && spinnerWorkerName.trim().length() > 0 && !spinnerWorkerName.equalsIgnoreCase("SELECT") ){
+        if(argWorkerName != null && argWorkerName.trim().length() > 0){
 
-            qualityInfo.setWorkerName(spinnerWorkerName);
+            qualityInfo.setWorkerName(argWorkerName);
+
             validateAdiNumber(qualityInfo);
-
 
         }else {
 
             hideProgressDialog();
             ApplicationUtils.showToast(mActivity,"Select Name of the Worker");
+
         }
 
     }
-
     private void validateAdiNumber(QualityInfo qualityInfo) {
 
-        if (spinnerAdiNumber != null && spinnerAdiNumber.trim().length() > 0 && !spinnerAdiNumber.equalsIgnoreCase("SELECT")) {
+        if (argAdiCode != null && argAdiCode.trim().length() > 0) {
 
-            qualityInfo.setAdiCode(spinnerAdiNumber);
+            qualityInfo.setAdiCode(argAdiCode);
             validateRowNumber(qualityInfo);
 
 
@@ -462,6 +471,7 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
             ApplicationUtils.showToast(mActivity, "ADI Number Missing");
         }
     }
+
 
     private void validateRowNumber(QualityInfo qualityInfo) {
 
@@ -727,8 +737,6 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
         rdgDeleafingData2.clearCheck();
         rdgDeleafingData3.clearCheck();
         rdgDeleafingData4.clearCheck();
-        spinWorkerName.setSelection(0);
-        spinAdiNumber.setSelection(0);
         spinComments.setSelection(0);
         llDispaly.setVisibility(View.GONE);
 
@@ -828,126 +836,7 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
         int viewId = adapterView.getId();
         switch (viewId) {
 
-            case R.id.spin_worker_name:
 
-                ApplicationUtils.hideKeypad(mActivity, spinWorkerName);
-
-                ApplicationUtils.hideKeypad(mActivity, spinAdiNumber);
-
-                workerName1 = adapterView.getItemAtPosition(position).toString();
-
-                workerPosition = spinWorkerName.getSelectedItemPosition();
-
-                spinAdiNumber.setSelection(workerPosition);
-
-                if(workerName1 != null && workerName1.trim().length() > 0 && !workerName1.equalsIgnoreCase("SELECT")) {
-
-
-                    spinnerWorkerName = workerName1;
-                    if(ApplicationUtils.isConnected(mActivity)){
-
-                        if(!ssCombinedData.isEmpty() && !ssPercentage.isEmpty()){
-
-                            String combined = argJobName+" "+workerName1;
-
-                            Log.e(TAG, "onItemSelected: "+combined );
-
-                            if(ssCombinedData.contains(combined)) {
-
-                                llDispaly.setVisibility(View.VISIBLE);
-
-                                combinedPos = getCategoryPosCombinedData(combined);
-
-
-
-
-                                if(ssPercentage.get(combinedPos) != null){
-
-                                    //if(pos1 == pos2){
-
-                                    percentTest = ssPercentage.get(combinedPos);
-                                    txtQualityPercent.setText(percentTest + "%");
-
-                                }else {
-
-                                    llDispaly.setVisibility(View.GONE);
-                                    txtQualityPercent.setText("");
-
-                                }
-
-
-
-
-
-                            }else{
-
-                                llDispaly.setVisibility(View.GONE);
-                                txtQualityPercent.setText("");
-
-                            }
-
-
-                        }else {
-
-                            llDispaly.setVisibility(View.GONE);
-                            txtQualityPercent.setText("");
-
-
-                        }
-
-
-
-                    }else {
-
-                        qualityInfoDataSource.open();
-
-                        globalQualityInfo = qualityInfoDataSource.getQualityInfoByJobAndWorkerName(workerName1, argJobName);
-
-                        qualityInfoDataSource.close();
-
-                        if (globalQualityInfo != null && globalQualityInfo.getQualityPercent() != null) {
-
-                            llDispaly.setVisibility(View.VISIBLE);
-
-                            txtQualityPercent.setText(globalQualityInfo.getQualityPercent() + "%");
-
-
-                        } else {
-
-                            llDispaly.setVisibility(View.GONE);
-                            txtQualityPercent.setText("");
-
-
-                        }
-
-                    }
-
-
-
-                }else if(workerName1.equalsIgnoreCase("SELECT")) {
-
-                    llDispaly.setVisibility(View.GONE);
-                    txtQualityPercent.setText("");
-
-                }
-
-                break;
-
-            case R.id.spin_adi_number:
-
-                adiNumber1 = adapterView.getItemAtPosition(workerPosition).toString();
-
-
-                if (adiNumber1 != null && adiNumber1.trim().length() > 0 && !adiNumber1.equalsIgnoreCase("SELECT")) {
-
-                    spinnerAdiNumber = adiNumber1;
-
-                }
-
-
-
-
-                break;
 
             case R.id.spin_comments:
 
