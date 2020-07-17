@@ -175,11 +175,7 @@ public class PruningFragment extends BaseFragment<PruningFragmentPresenter> impl
         btnSubmit.setOnClickListener(this);
 
 
-        if(ApplicationUtils.isConnected(mActivity)){
-
-            getQualityPercentageFromSheet();
-
-        }
+        getQualityPercentageFromSheet();
 
 
         initSpinners();

@@ -177,11 +177,9 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
         btnSubmit.setOnClickListener(this);
 
 
-        if(ApplicationUtils.isConnected(mActivity)){
+        getQualityPercentageFromSheet();
 
-            getQualityPercentageFromSheet();
 
-        }
         initSpinners();
 
 

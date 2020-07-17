@@ -189,13 +189,10 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
         radioClippingData1yes.startAnimation(animation);
         radioClippingData1no.startAnimation(animation);*/
 
-        if(ApplicationUtils.isConnected(mActivity)){
+        getQualityPercentageFromSheet();
 
-            getQualityPercentageFromSheet();
 
-        }
         initSpinners();
-
 
     }
 

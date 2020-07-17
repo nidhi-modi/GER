@@ -174,11 +174,7 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
         btnSubmit.setOnClickListener(this);
 
 
-        if(ApplicationUtils.isConnected(mActivity)){
-
-            getQualityPercentageFromSheet();
-
-        }
+        getQualityPercentageFromSheet();
 
 
         initSpinners();
