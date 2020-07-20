@@ -2,6 +2,7 @@ package com.tandg.qualitysheet.pruningFragment;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -39,6 +40,7 @@ import com.tandg.qualitysheet.di.DependencyInjector;
 import com.tandg.qualitysheet.droppingFragment.DroppingFragmentContract;
 import com.tandg.qualitysheet.droppingFragment.DroppingFragmentPresenter;
 import com.tandg.qualitysheet.helper.ApplicationHelper;
+import com.tandg.qualitysheet.listeners.ViewCallback;
 import com.tandg.qualitysheet.model.QualityInfo;
 import com.tandg.qualitysheet.model.SpinInfo;
 import com.tandg.qualitysheet.qualitySheetActivity.QualitySheetActivity;
@@ -121,6 +123,7 @@ public class PruningFragment extends BaseFragment<PruningFragmentPresenter> impl
     ArrayList<String> WorkersName, ADICode;
     ArrayList<String> ssCombinedData, ssPercentage;
     boolean isVisited = false;
+    private ViewCallback mListener;
 
 
 
@@ -287,6 +290,9 @@ public class PruningFragment extends BaseFragment<PruningFragmentPresenter> impl
 
                             displayPercentageData();
 
+                            mListener.freezeComponent(false);
+
+
                         }catch (JSONException e){e.printStackTrace();}
 
 
@@ -312,6 +318,24 @@ public class PruningFragment extends BaseFragment<PruningFragmentPresenter> impl
 
     }
 
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof ViewCallback) {
+            //init the listener
+            mListener = (ViewCallback) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement InteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
 
 
 

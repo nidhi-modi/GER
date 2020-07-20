@@ -55,7 +55,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> implements QualitySheetContract.View, View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> implements QualitySheetContract.View, View.OnClickListener, AdapterView.OnItemSelectedListener, ViewCallback{
 
     private static final String TAG = QualitySheetActivity.class.getSimpleName();
 
@@ -156,6 +156,8 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
         navigateToFragments();
 
     }
+
+
 
     private int getCategoryPosCombinedData(String category) {
         return ssCombinedData.lastIndexOf(category);
@@ -521,6 +523,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
                     spinHousenumber.setEnabled(false);
                     spinWorkerName.setEnabled(false);
                     spinAdiNumber.setEnabled(false);
+                    spinJobName.setEnabled(false);
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     Bundle bundle = new Bundle();
                     bundle.putString("txtJobName", spinnerJobName);
@@ -542,6 +545,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
                     spinHousenumber.setEnabled(false);
                     spinWorkerName.setEnabled(false);
                     spinAdiNumber.setEnabled(false);
+                    spinJobName.setEnabled(false);
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     Bundle bundle = new Bundle();
                     bundle.putString("txtJobName", spinnerJobName);
@@ -563,6 +567,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
                     spinHousenumber.setEnabled(false);
                     spinWorkerName.setEnabled(false);
                     spinAdiNumber.setEnabled(false);
+                    spinJobName.setEnabled(false);
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     Bundle bundle = new Bundle();
                     bundle.putString("txtJobName", spinnerJobName);
@@ -584,6 +589,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
                     spinHousenumber.setEnabled(false);
                     spinWorkerName.setEnabled(false);
                     spinAdiNumber.setEnabled(false);
+                    spinJobName.setEnabled(false);
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     Bundle bundle = new Bundle();
                     bundle.putString("txtJobName", spinnerJobName);
@@ -605,6 +611,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
                     spinHousenumber.setEnabled(false);
                     spinWorkerName.setEnabled(false);
                     spinAdiNumber.setEnabled(false);
+                    spinJobName.setEnabled(false);
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     Bundle bundle = new Bundle();
                     bundle.putString("txtJobName", spinnerJobName);
@@ -626,6 +633,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
                     spinHousenumber.setEnabled(false);
                     spinWorkerName.setEnabled(false);
                     spinAdiNumber.setEnabled(false);
+                    spinJobName.setEnabled(false);
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     Bundle bundle = new Bundle();
                     bundle.putString("txtJobName", spinnerJobName);
@@ -730,6 +738,23 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
         }
 
         return super.onOptionsItemSelected(item);
+
     }
 
+    @Override
+    public void freezeComponent(boolean b) {
+
+        Log.e(TAG, "freezeComponent: "+b );
+
+        if(!b){
+
+            spinJobName.setEnabled(true);
+
+        }else{
+
+            spinJobName.setEnabled(false);
+
+        }
+
+    }
 }

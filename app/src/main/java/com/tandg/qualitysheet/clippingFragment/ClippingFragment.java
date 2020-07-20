@@ -2,6 +2,7 @@ package com.tandg.qualitysheet.clippingFragment;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -128,6 +129,7 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
     ArrayList<String> WorkersName, ADICode;
     ArrayList<String> ssCombinedData, ssPercentage;
     boolean isVisited = false;
+    private ViewCallback mListener;
 
 
     @Override
@@ -299,6 +301,8 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
 
                             displayPercentageData();
 
+                            mListener.freezeComponent(false);
+
 
                         }catch (JSONException e){e.printStackTrace();}
 
@@ -323,6 +327,23 @@ public class ClippingFragment extends BaseFragment<ClippingFragmentPresenter> im
         queue.add(stringRequest);
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof ViewCallback) {
+            //init the listener
+            mListener = (ViewCallback) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement InteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
 
 
 

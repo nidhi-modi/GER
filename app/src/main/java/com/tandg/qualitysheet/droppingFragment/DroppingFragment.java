@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ import com.tandg.qualitysheet.clippingFragment.ClippingFragment;
 import com.tandg.qualitysheet.database.dataSource.QualityInfoDataSource;
 import com.tandg.qualitysheet.di.DependencyInjector;
 import com.tandg.qualitysheet.helper.ApplicationHelper;
+import com.tandg.qualitysheet.listeners.ViewCallback;
 import com.tandg.qualitysheet.model.QualityInfo;
 import com.tandg.qualitysheet.model.SpinInfo;
 import com.tandg.qualitysheet.qualitySheetActivity.QualitySheetActivity;
@@ -115,6 +117,8 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
     ArrayList<String> WorkersName, ADICode;
     ArrayList<String> ssCombinedData, ssPercentage;
     boolean isVisited = false;
+    private ViewCallback mListener;
+
 
 
 
@@ -159,6 +163,8 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
         ssCombinedData    = new ArrayList<>();
         ssPercentage      = new ArrayList<>();
 
+
+
         edtRowNumber.setInputType(InputType.TYPE_CLASS_NUMBER);
         //edtComments.setImeOptions(EditorInfo.IME_ACTION_DONE);
         //edtComments.setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
@@ -181,6 +187,7 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
 
 
     }
+
 
     private void displayPercentageData() {
 
@@ -286,6 +293,7 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
 
                             displayPercentageData();
 
+                            mListener.freezeComponent(false);
 
                         }catch (JSONException e){e.printStackTrace();}
 
@@ -312,6 +320,23 @@ public class DroppingFragment extends BaseFragment<DroppingFragmentPresenter> im
     }
 
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof ViewCallback) {
+            //init the listener
+           mListener = (ViewCallback) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement InteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
 
     private void initSpinners() {
 
