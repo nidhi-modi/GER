@@ -180,7 +180,15 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
         btnSubmit.setOnClickListener(this);
 
 
-        getQualityPercentageFromSheet();
+        if(ApplicationUtils.isConnected(mActivity)) {
+
+            getQualityPercentageFromSheet();
+
+        }else{
+
+            mListener.freezeComponent(false);
+            displayPercentageData();
+        }
 
 
         initSpinners();
@@ -244,7 +252,7 @@ public class DeleafingFragment extends BaseFragment<DeleafingFragmentPresenter> 
 
             qualityInfoDataSource.open();
 
-            globalQualityInfo = qualityInfoDataSource.getQualityInfoByJobAndWorkerName(workerName1, argJobName);
+            globalQualityInfo = qualityInfoDataSource.getQualityInfoByJobAndWorkerName(argWorkerName, argJobName);
 
             qualityInfoDataSource.close();
 

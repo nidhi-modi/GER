@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -70,7 +71,6 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
 
 
 
-
     //@formatter:on
 
     private static ViewCallback viewSelectionCallback;
@@ -94,11 +94,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_quality_sheet);
 
-
         initResources();
-
-        //Client ID 631934245578-gf4dvsmqesblncuehs5klp9h8g3mgtg4.apps.googleusercontent.com
-
 
     }
 
@@ -110,6 +106,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
         spinJobName.setEnabled(false);
         spinHousenumber.setEnabled(false);
         spinWorkerName.setEnabled(false);
+
 
         WorkersName       = new ArrayList<>();
         ADICode           = new ArrayList<>();
@@ -125,6 +122,10 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
 
 
         spinnerWeekNumber = ApplicationUtils.getDateTime();
+
+        initListners();
+
+        initSpinners();
 
         if(ApplicationUtils.isConnected(getApplicationContext())){
 
@@ -143,15 +144,15 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
             List<String> arrayList1 = Arrays.asList(getResources().getStringArray(R.array.ger_adi));
             ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(getApplicationContext(), R.layout.layout_spinner_label, arrayList1);
             arrayAdapter1.setDropDownViewResource(R.layout.layout_spinner_label);
-            spinAdiNumber.setAdapter(arrayAdapter);
+            spinAdiNumber.setAdapter(arrayAdapter1);
+
+
 
 
         }
 
 
-        initListners();
 
-        initSpinners();
 
         navigateToFragments();
 
@@ -276,6 +277,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
 
                 if (spinnerAuditorName != null && spinnerAuditorName.length() > 0 && !spinnerAuditorName.equalsIgnoreCase("SELECT")) {
 
+                    spinAuditorName.setEnabled(true);
                     spinJobName.setEnabled(false);
                     spinHousenumber.setEnabled(true);
                     spinWorkerName.setEnabled(false);
@@ -304,6 +306,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
 
                 if (spinnerHouseNumber != null && spinnerHouseNumber.length() > 0 && !spinnerHouseNumber.equalsIgnoreCase("SELECT")) {
 
+                    spinAuditorName.setEnabled(true);
                     spinJobName.setEnabled(false);
                     spinHousenumber.setEnabled(true);
                     spinWorkerName.setEnabled(true);
@@ -339,6 +342,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
                 spinAdiNumber.setSelection(workerPosition);
 
                 if (spinnerWorkerName != null && spinnerWorkerName.length() > 0 && !spinnerWorkerName.equalsIgnoreCase("SELECT")) {
+                    spinAuditorName.setEnabled(true);
 
                     spinJobName.setEnabled(true);
                     spinHousenumber.setEnabled(true);
@@ -365,16 +369,19 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
 
                 adiNumber1 = parent.getItemAtPosition(workerPosition).toString();
 
-
                 if (adiNumber1 != null && adiNumber1.trim().length() > 0 && !adiNumber1.equalsIgnoreCase("SELECT")) {
 
                     spinnerAdiNumber = adiNumber1;
+                    spinAuditorName.setEnabled(true);
 
                     spinJobName.setEnabled(true);
                     spinHousenumber.setEnabled(true);
                     spinWorkerName.setEnabled(true);
 
 
+                }else {
+
+                    Log.e(TAG, "Adapter is null" );
                 }
             }
 
@@ -679,6 +686,54 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
 
                     clearSpinners();
                 }
+
+                break;
+
+            case R.id.spin_worker_name:
+
+
+                ApplicationUtils.hideKeypad(getApplicationContext(), spinWorkerName);
+
+                ApplicationUtils.hideKeypad(getApplicationContext(), spinAdiNumber);
+
+                workerName1 = adapterView.getItemAtPosition(i).toString();
+
+                workerPosition = spinWorkerName.getSelectedItemPosition();
+
+                spinAdiNumber.setSelection(workerPosition);
+
+                if (workerName1 != null && workerName1.length() > 0 && !workerName1.equalsIgnoreCase("SELECT")) {
+
+                    spinnerWorkerName = workerName1;
+
+                }else if (workerName1.equalsIgnoreCase("SELECT")) {
+
+
+                    clearSpinners();
+                }
+
+
+
+                break;
+
+            case R.id.spin_adi_number:
+
+
+                adiNumber1 = adapterView.getItemAtPosition(workerPosition).toString();
+
+
+                if (adiNumber1 != null && adiNumber1.trim().length() > 0 && !adiNumber1.equalsIgnoreCase("SELECT")) {
+
+                    spinnerAdiNumber = adiNumber1;
+
+
+                }else if (adiNumber1.equalsIgnoreCase("SELECT")) {
+
+
+                    clearSpinners();
+                }
+
+
 
                 break;
 

@@ -68,41 +68,41 @@
 
     //-------------------NAMES-------------------------------
 
-    <array name="ger_names">
+    <string-array name="ger_names">
         <item>SELECT</item>
         <item>Paul Haxby</item>
-        <item>Deep Singh </item>
-        <item>Nau Pesa </item>
+        <item>Deep Singh</item>
+        <item>Nau Pesa</item>
         <item>Melody Taylor</item>
-        <item>Tomasi Lama </item>
+        <item>Tomasi Lama</item>
         <item>Amy Bhana</item>
-        <item>Helen Brian </item>
-        <item>Sumita Chand </item>
+        <item>Helen Brian</item>
+        <item>Sumita Chand</item>
         <item>Melenau Feao</item>
         <item>Paula Feao</item>
         <item>Paea Filiai</item>
         <item>Simione Filiai</item>
         <item>Huia Flavell</item>
         <item>Peter Hepi</item>
-        <item>Teiamaon Ieremia</item>
+        <item>Teiamaon Ieremiam</item>
         <item>Oliveti Lama</item>
         <item>Eric Low</item>
         <item>Craig Martin</item>
         <item>Lise Maunana</item>
         <item>Michael Miteti</item>
         <item>Toutai Pakofe</item>
-        <item>Ngana Potesio </item>
+        <item>Ngana Potesio</item>
         <item>Waimatou Potini</item>
         <item>Ram Harsangat</item>
         <item>Roshni Singh</item>
         <item>Paape Sotaga</item>
         <item>Errol Straker</item>
-        <item>Kataua Tekitanga</item>
+        <item>Kataua Tekitangam</item>
         <item>Tafihi Toafa</item>
         <item>Reanna Broome</item>
         <item>Steve Bryan</item>
-        <item>Michelle Enqriquez</item>
-        <item>Hester Fourie </item>
+        <item>Michelle Enqriqueztem</item>
+        <item>Hester Fourie</item>
         <item>Keying He</item>
         <item>Julie Kelly</item>
         <item>Phillip Martin</item>
@@ -114,76 +114,72 @@
         <item>Latu Vainga</item>
         <item>Siosaia Unga</item>
         <item>Timote Tonga</item>
-        <item>Taniela Hennessey</item>
+        <item>Taniela Hennesseyem</item>
         <item>Tevita Mafua</item>
-        <item>Liufau Aukafolau</item>
-        <item>Ahi Sia I Moana Aukafolau</item>
-        <item>Kesomi Aukafolau</item>
-        <item>Sitiveni Vaivela</item>
-        <item>Lopeti Tulikihakau</item>
-        <item>Losimani Soakai </item>
+        <item>Liufau Aukafolaum</item>
+        <item>Ahi Sia I Moana Aukafolauolau</item>
+        <item>Kesomi Aukafolaum</item>
+        <item>Sitiveni Vaivelam</item>
+        <item>Lopeti Tulikihakautem</item>
+        <item>Losimani Soakai m</item>
         <item>Alamoti Finau</item>
-        <item>Pauliasi Pakileata </item>
+        <item>Pauliasi Pakileata</item>
         <item>Fakatele Taufa</item>
-        <item>Sione Tu\'itupou</item>
+        <item>Sione Tu\'itupoum</item>
         <item>Ulupano Lo</item>
         <item>Naulivou Pangi</item>
-        <item>Folau Vaipapalangi</item>
+        <item>Folau Vaipapalangitem</item>
         <item>Ofila Tausisi</item>
         <item>Folau Tausinga</item>
         <item>Molisi Vaea</item>
         <item>Asipeli Fetuu</item>
         <item>Mosese Tuitupou</item>
-        <item>Atunaisa Aukafolau</item>
+        <item>Atunaisa Aukafolautem</item>
         <item>Pesalili Vaea</item>
         <item>Pita Huni</item>
         <item>Patimana Finau</item>
-        <item>Manase Fainganuku</item>
+        <item>Manase Fainganukuem</item>
         <item>Phillip Martin</item>
         <item>Hanllal Vailea</item>
-        <item>Sione Uliti Tualau</item>
-        <item>Viliami Teuteukuhelotu</item>
+        <item>Sione Uliti Tualautem</item>
+        <item>Viliami Teuteukuhelotuu</item>
         <item>Tevita Vaomotou</item>
-        <item>Lataimulinu\'u Tongatoutai</item>
+        <item>Lataimulinu\'u Tongatoutaioutai</item>
         <item>Vakavelo Ulinoa</item>
-        <item>Samiu Aholelei </item>
+        <item>Samiu Aholelei</item>
         <item>Moala Paongo</item>
         <item>Samiuela Latu</item>
-        <item>Pepa Aukafolau </item>
+        <item>Pepa Aukafolau</item>
         <item>Nulani Fifita</item>
-        <item>Rebecca Wilson </item>
+        <item>Rebecca Wilson</item>
         <item>Aoniba Tabane </item>
-        <item>Banikai Kautabuki </item>
-        <item>Bungintai Taatonga </item>
+        <item>Banikai Kautabuki</item>
+        <item>Bungintai Taatonga</item>
         <item>Marouea Takaree</item>
         <item>Meere Beiariki</item>
         <item>Kinateao Iran</item>
         <item>Susi Tekaai</item>
-        <item>Tebaibure Tonginako </item>
-        <item>Tebanikaboki Moretekai</item>
+        <item>Tebaibure Tonginako</item>
+        <item>Tebanikaboki Moretekaii</item>
         <item>Tikoi Rerei</item>
         <item>Temateao Tanako</item>
         <item>Terenga Tebau</item>
-        <item>Teuota Kontrio </item>
+        <item>Teuota Kontrio</item>
         <item>Tiotara Temare</item>
         <item>Waabuti Ataia</item>
         <item>Meere Eriki</item>
         <item>Kibaria Kaukau</item>
-        <item>Moannara Tekaai </item>
+        <item>Moannara Tekaai m</item>
         <item>Taane Ioanne</item>
-        <item>Patimana Finau</item>
-        <item>Fakatele Taufa</item>
-        <item>Pauliasi Aukafolau</item>
-        <item>Liufau Aukafolau</item>
-        <item>Atunaisa Aukafolau</item>
-        <item>Sitiveni Vaea</item>
+        <item>Gregory Chown</item>
+        <item>Layla Borrington</item>
 
 
-    </array>
+    </string-array>
 
     //-------------------ADI CODES-------------------------------
 
-    <array name="ger_adi">
+    <string-array name="ger_adi">
         <item>SELECT</item>
         <item>95915</item>
         <item>10933</item>
@@ -286,9 +282,9 @@
         <item>97472</item>
         <item>93890</item>
         <item>98923</item>
-
-
-    </array>
+        <item>99677</item>
+        <item>99902</item>
+    </string-array>
 
 
 

@@ -145,7 +145,7 @@ public class SplashScreen extends AppCompatActivity {
         long firstMillis = System.currentTimeMillis();
         AlarmManager alarm = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
         alarm.setRepeating(AlarmManager.RTC_WAKEUP, firstMillis,
-                30 * 1000, pIntent);
+                10 * 1000, pIntent);
 
         //fire an alarm after every 30 sec
 
