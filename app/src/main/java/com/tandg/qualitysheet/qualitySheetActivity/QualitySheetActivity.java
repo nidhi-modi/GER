@@ -106,6 +106,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
         spinJobName.setEnabled(false);
         spinHousenumber.setEnabled(false);
         spinWorkerName.setEnabled(false);
+        spinAuditorName.setEnabled(true);
 
 
         WorkersName       = new ArrayList<>();
@@ -658,6 +659,11 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
                 } else if (jobName.equalsIgnoreCase("SELECT")) {
 
                     clearSpinners();
+                    spinAuditorName.setEnabled(true);
+                    spinHousenumber.setEnabled(false);
+                    spinWorkerName.setEnabled(false);
+                    spinAdiNumber.setEnabled(false);
+                    spinJobName.setEnabled(false);
                     Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frame_layout_main);
                     if (fragment != null) {
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
