@@ -437,14 +437,14 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
         //------------------------------AUDITOR_NAME----------------------------------------
 
         ArrayList<SpinInfo> arrayList = new ArrayList<>();
-        arrayList.add(new SpinInfo(0, "SELECT"));
-        arrayList.add(new SpinInfo(1, "Deep Singh"));
-        arrayList.add(new SpinInfo(2, "Melody Taylor"));
-        arrayList.add(new SpinInfo(3, "Nau Pesa"));
-        arrayList.add(new SpinInfo(4, "Francis Dee"));
-        arrayList.add(new SpinInfo(5, "Nilesh Patel"));
-        arrayList.add(new SpinInfo(6, "Gurjant Singh"));
-        arrayList.add(new SpinInfo(7, "Tevita Fetuani"));
+        //arrayList.add(new SpinInfo(0, "SELECT"));
+        arrayList.add(new SpinInfo(0, "Deep Singh"));
+        arrayList.add(new SpinInfo(1, "Melody Taylor"));
+        arrayList.add(new SpinInfo(2, "Nau Pesa"));
+        arrayList.add(new SpinInfo(3, "Francis Dee"));
+        arrayList.add(new SpinInfo(4, "Nilesh Patel"));
+        arrayList.add(new SpinInfo(5, "Gurjant Singh"));
+        arrayList.add(new SpinInfo(6, "Tevita Fetuani"));
 
         ArrayAdapter<SpinInfo> arrayAdapter = new ArrayAdapter<SpinInfo>(getApplicationContext(), R.layout.layout_spinner_label, arrayList);
         arrayAdapter.setDropDownViewResource(R.layout.layout_spinner_label);
@@ -455,12 +455,12 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
         //------------------------------HOUSE_NUMBER----------------------------------------
 
         ArrayList<SpinInfo> list = new ArrayList<>();
-        list.add(new SpinInfo(0, "SELECT"));
-        list.add(new SpinInfo(1, "GER 1"));
-        list.add(new SpinInfo(2, "GER 2"));
-        list.add(new SpinInfo(3, "GER 3"));
-        list.add(new SpinInfo(4, "GER 4"));
-        list.add(new SpinInfo(5, "GER 5"));
+        //list.add(new SpinInfo(0, "SELECT"));
+        list.add(new SpinInfo(0, "GER 1"));
+        list.add(new SpinInfo(1, "GER 2"));
+        list.add(new SpinInfo(2, "GER 3"));
+        list.add(new SpinInfo(3, "GER 4"));
+        list.add(new SpinInfo(4, "GER 5"));
 
 
         ArrayAdapter<SpinInfo> infoArrayAdapter = new ArrayAdapter<SpinInfo>(getApplicationContext(), R.layout.layout_spinner_label, list);
