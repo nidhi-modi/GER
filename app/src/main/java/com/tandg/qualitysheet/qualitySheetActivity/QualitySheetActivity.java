@@ -445,6 +445,7 @@ public class QualitySheetActivity extends BaseActivity<QualitySheetPresenter> im
         arrayList.add(new SpinInfo(4, "Nilesh Patel"));
         arrayList.add(new SpinInfo(5, "Gurjant Singh"));
         arrayList.add(new SpinInfo(6, "Tevita Fetuani"));
+        arrayList.add(new SpinInfo(7, "Sione Potesio"));
 
         ArrayAdapter<SpinInfo> arrayAdapter = new ArrayAdapter<SpinInfo>(getApplicationContext(), R.layout.layout_spinner_label, arrayList);
         arrayAdapter.setDropDownViewResource(R.layout.layout_spinner_label);
